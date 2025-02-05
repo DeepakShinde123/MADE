@@ -14,6 +14,22 @@ function Inputs() {
       file.type === "image/webp"
     ) {
       console.log("Image is supported!");
+      console.log(file);
+
+      const reader = new FileReader();
+
+      reader.onloadend = function () {
+        // Here is the Base64 string
+        const base64String = reader.result;
+        console.log(base64String); // Base64 URI
+      };
+
+      if (file) {
+        reader.readAsDataURL(file); // Converts image to base64 URI
+      }
+
+      // const url = URL.createObjectURL(file);
+      // console.log(url);
     }
   };
 
