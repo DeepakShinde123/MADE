@@ -1,3 +1,4 @@
+import { ChartSpline } from "lucide-react";
 import React from "react";
 
 function Chats() {
@@ -6,4 +7,4 @@ function Chats() {
 }
 
 
-export default Chats
+export default ChartSpline
