@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { Button, Input } from "@heroui/react";
 import { SendHorizontalIcon, UploadIcon } from "lucide-react";
 
-function Inputs({ socket, id, name }) {
+function Inputs({ socket, id, name, setMessages }) {
   const [input, setInput] = useState("");
   const inputUpload = useRef(null);
 
@@ -26,6 +26,7 @@ function Inputs({ socket, id, name }) {
       };
 
       socket.emit("message", msg);
+      setMessages((prevState) => [...prevState, msg]);
     };
 
     if (file) {
@@ -49,6 +50,8 @@ function Inputs({ socket, id, name }) {
       };
 
       socket.emit("message", msg);
+      setMessages((prevState) => [...prevState, msg]);
+
       setInput("");
     }
   };
